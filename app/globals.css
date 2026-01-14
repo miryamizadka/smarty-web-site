@@ -1,26 +1,36 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* --- פלטה צבעים רכה וחדשנית --- */
+  --color-bg-main: #F0F4F8;
+  --color-text-primary: #1E293B; /* כחול-אפור כהה מאוד */
+  --color-text-secondary: #64748B;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* גוונים חזקים אך נעימים */
+  --color-blob-1: #FF4D9E; /* ורוד בזוקה */
+  --color-blob-2: #8B5CF6; /* סגול בוהק */
+  --color-blob-3: #06B6D4; /* טורקיז */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --font-heading: var(--font-cloud);
+  --font-sans: var(--font-text);
+  
+  --animate-shine: shine 1.5s infinite;
+
+  @keyframes shine {
+    100% {
+      left: 125%;
+    }
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bg-main);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* רעש רקע שנותן טקסטורה איכותית */
+.noise-overlay {
+  background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
 }
