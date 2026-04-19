@@ -547,11 +547,13 @@ svg#financialChart { width: 100%; height: 100%; overflow: visible; }
     padding: 100px 0 80px; background: #020408;
     position: relative; overflow: hidden;
 }
-#clients::before {
-    content: ''; position: absolute; top: 50%; left: 50%;
-    transform: translate(-50%, -50%); width: 80%; height: 80%;
-    background: radial-gradient(ellipse, rgba(189, 0, 255, 0.07) 0%, transparent 70%);
-    z-index: 0; pointer-events: none;
+#clients::before { display: none; }
+#clients::after { display: none; }
+.clients-center-glow {
+    position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 140%; height: 70%;
+    background: radial-gradient(ellipse at 50% 30%, rgba(255, 0, 170, 0.18) 0%, rgba(255, 0, 170, 0.06) 40%, transparent 70%);
+    filter: blur(80px); z-index: 0; pointer-events: none;
 }
 #clients .section-header { position: relative; z-index: 1; }
 .clients-subtitle { color: #555; font-size: 0.95rem; margin-top: 12px; }
@@ -560,18 +562,17 @@ svg#financialChart { width: 100%; height: 100%; overflow: visible; }
     margin-top: 60px;
     display: flex; flex-direction: column; gap: 28px;
     direction: ltr;
-    padding: 0 0 60px;
+    padding: 24px 0 60px;
     overflow: hidden;
-    /* 3D perspective — makes rows appear to lie flat on the ground */
-    perspective: 650px;
-    perspective-origin: 50% -15%;
+    perspective: 900px;
+    perspective-origin: 50% 20%;
+    position: relative; z-index: 1;
 }
 
 .logos-row {
     overflow: visible;
     position: relative;
-    /* Tilt the row so it lies flat */
-    transform: rotateX(42deg);
+    transform: rotateX(25deg);
     transform-origin: center top;
 }
 
@@ -585,61 +586,63 @@ svg#financialChart { width: 100%; height: 100%; overflow: visible; }
 /* === FLAT TILES (שוכבים) === */
 .logo-slide {
     flex-shrink: 0;
-    width: 170px; height: 170px;   /* ריבוע גדול */
-    border-radius: 6px;
+    width: 160px; height: 160px;
+    border-radius: 12px;
     display: flex; align-items: center; justify-content: center;
     position: relative; overflow: hidden;
-    /* base dark background */
-    background: #080f1e;
-    /* colored tint overlay via border + pseudo */
-    border: 1.5px solid var(--sc, rgba(0,240,255,0.4));
-    box-shadow: 0 3px 14px rgba(0,0,0,0.5);
+    background: rgba(11, 18, 33, 0.75);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow:
+        0 8px 32px rgba(0,0,0,0.5),
+        0 0 0 1px rgba(255,255,255,0.03),
+        inset 0 1px 0 rgba(255,255,255,0.07);
     cursor: pointer;
-    transition: transform 0.3s ease, filter 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
 }
-/* colored fill tint — the card itself is bright */
+/* glass shine */
 .logo-slide::before {
     content: '';
     position: absolute; inset: 0;
-    background: var(--sc, #00f0ff);
-    opacity: 0.13;
-    transition: opacity 0.3s;
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 55%);
     pointer-events: none;
 }
-/* top-left diagonal shine stripe */
+/* top-left corner highlight */
 .logo-slide::after {
     content: '';
     position: absolute;
     top: 0; left: 0;
     width: 55%; height: 55%;
-    background: linear-gradient(135deg, rgba(255,255,255,0.07) 0%, transparent 60%);
-    border-radius: 6px 0 0 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 60%);
+    border-radius: 12px 0 0 0;
     pointer-events: none;
 }
 .logo-slide:hover {
-    transform: scale(1.07);
-    filter: brightness(1.18);
+    transform: scale(1.09) translateY(-6px);
+    border-color: rgba(0,240,255,0.3);
+    box-shadow:
+        0 0 25px rgba(0,240,255,0.12),
+        0 14px 40px rgba(0,0,0,0.6),
+        inset 0 1px 0 rgba(255,255,255,0.1),
+        inset 0 0 20px rgba(0,240,255,0.04);
 }
-.logo-slide:hover::before { opacity: 0.22; }
 
 /* Brighter tile variant */
 .logo-slide.cube-bright {
-    background: #0b1428;
-    border-width: 2px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.5);
+    background: rgba(15, 24, 45, 0.85);
+    border: 1px solid rgba(255,255,255,0.12);
 }
-.logo-slide.cube-bright::before { opacity: 0.2; }
 
 .logo-slide img {
-    height: 58px; width: auto; max-width: 138px;
+    height: 82px; width: auto; max-width: 132px;
     object-fit: contain;
-    filter: brightness(0.9) saturate(0.75);
-    opacity: 0.82;
+    filter: brightness(1.05) saturate(1.0);
+    opacity: 1;
     transition: all 0.3s ease;
     position: relative; z-index: 1;
 }
 .logo-slide:hover img {
-    filter: brightness(1.1) saturate(1.2);
+    filter: brightness(1.25) saturate(1.3);
     opacity: 1;
 }
 
@@ -647,7 +650,7 @@ svg#financialChart { width: 100%; height: 100%; overflow: visible; }
 .cube-geo {
     flex-shrink: 0;
     position: relative;
-    width: 55px; height: 170px;   /* ריק, אותו גובה כמו הכרטיסים */
+    width: 55px; height: 160px;
     border-radius: 4px;
     border: 1px solid rgba(0,240,255,0.16);
     background: transparent;
