@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechNova | פיתוח העתיד</title>
+    
+    <!-- פונטים מהירים יותר -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&family=Rubik:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav id="main-nav">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo-link">
+                <img src="images/logo-smartapp.jpeg" alt="Smart App" class="nav-logo-img" onerror="this.style.display='none'">
+                <span class="nav-brand-text">Smart<span class="neon-purple">App</span></span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="#services" class="nav-link">שירותים</a>
+                <a href="#about" class="nav-link">אודות</a>
+                <a href="#clients" class="nav-link">לקוחות</a>
+                <a href="#founder" class="nav-link">המייסד</a>
+                <a href="#contact" class="nav-link nav-cta">צור קשר</a>
+            </div>
+            <button class="nav-hamburger" id="nav-hamburger" aria-label="תפריט">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Section 1: Hero -->
+    <section id="hero">
+        <div class="container hero-layout">
+            <div class="hero-text">
+                <h1 class="hero-title">אנחנו מפתחים <br><span class="neon-purple">את מה שאתם</span> <br><span class="neon-cyan">מדמיינים</span></h1>
+                <p class="hero-subtitle">הפכו חזון למציאות דיגיטלית. פיתוח עילית, עיצוב פורץ גבולות וטכנולוגיה מהעתיד.</p>
+                <div class="buttons-wrapper">
+                    <!-- הוספתי ID לכפתור הגלילה -->
+                    <a href="#contact" id="hero-cta" class="btn-stadium primary">בואו נבנה עתיד</a>
+                    <a href="#process" class="btn-stadium secondary">איך זה עובד?</a>
+                </div>
+            </div>
+            
+            <!-- שיניתי ל-DIV עבור ספריית particles.js -->
+            <div class="canvas-box" id="hero-particles"></div>
+        </div>
+    </section>
+
+    <!-- Section 2: Services -->
+    <section id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>בכל <span class="neon-purple">שלב</span> במסע שלכם</h2>
+            </div>
+
+            <div class="cards-grid">
+                <!-- הוספתי class 'animate-card' לאנימציית הגלילה -->
+                <div class="tech-card animate-card">
+                    <div class="card-icon-wrapper">
+                        <div class="radar-scan"></div>
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>משלב הרעיון</h3>
+                    <p>יש לכם רק חלום? מעולה. אנחנו נעזור לזקק אותו, לאפיין אותו ולהפוך אותו לתוכנית עבודה פרקטית.</p>
+                </div>
+
+                <div class="tech-card purple-accent animate-card">
+                    <div class="card-icon-wrapper">
+                        <div class="mech-glow"></div>
+                        <i class="fas fa-cogs spin-slow"></i>
+                    </div>
+                    <h3>שדרוג ופיתוח</h3>
+                    <p>יש מוצר קיים? המערכת זוחלת? אנחנו נכנסים מתחת למכסה המנוע ומשדרגים לטכנולוגיות קצה.</p>
+                </div>
+
+                <div class="tech-card animate-card">
+                    <div class="card-icon-wrapper">
+                        <div class="target-scope"></div>
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>שותפות טכנולוגית</h3>
+                    <p>באתם מסודרים עם אפיון? אנחנו נהיה הזרוע הטכנולוגית המבצעת שתרוץ אתכם למרחקים ארוכים.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Pricing Graph (נשאר ללא שינוי, הוא קליל) -->
+    <section id="pricing">
+        <div class="container pricing-layout">
+            <div class="pricing-text">
+                <h2>מודל תשלום <span class="neon-purple">חכם</span></h2>
+                <p>בנינו מודל שלא חונק את הסטארטאפ. מתחילים נמוך, וגדלים רק כשאתם גדלים.</p>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> עלות הקמה מינימלית</li>
+                    <li><i class="fas fa-check"></i> פריסה נוחה לתזרים</li>
+                </ul>
+            </div>
+            <!-- שמרתי על הגרף הקומפקטי שהוא קל לרינדור -->
+            <div class="graph-compact-wrapper">
+                <div class="graph-header-clean">FINANCIAL_PROJECTION</div>
+                <div class="graph-body" id="graphBody">
+                     <div id="tooltip" class="custom-tooltip">
+                        <div class="tooltip-header" id="tpLabel"></div>
+                        <div class="tooltip-item cyan">רווח: <span id="tpIncome"></span>%</div>
+                        <div class="tooltip-item purple">עלות: <span id="tpExpense"></span>%</div>
+                    </div>
+                    <svg id="financialChart" viewBox="0 0 400 200" preserveAspectRatio="none">
+                        <defs>
+                            <linearGradient id="gradIncome" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="5%" stop-color="#00f0ff" stop-opacity="0.4"/>
+                                <stop offset="95%" stop-color="#00f0ff" stop-opacity="0"/>
+                            </linearGradient>
+                            <linearGradient id="gradExpenses" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="5%" stop-color="#bd00ff" stop-opacity="0.4"/>
+                                <stop offset="95%" stop-color="#bd00ff" stop-opacity="0"/>
+                            </linearGradient>
+                        </defs>
+                        <g id="gridGroup"></g>
+                        <path id="areaIncome" d="" fill="url(#gradIncome)" />
+                        <path id="lineIncome" d="" fill="none" stroke="#00f0ff" stroke-width="2" />
+                        <path id="areaExpenses" d="" fill="url(#gradExpenses)" />
+                        <path id="lineExpenses" d="" fill="none" stroke="#bd00ff" stroke-width="2" />
+                        <rect width="100%" height="100%" fill="transparent" id="chartOverlay"></rect>
+                    </svg>
+                    <div class="x-labels" id="xLabels"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Process -->
+    <section id="process">
+        <div class="container">
+            <div class="section-header">
+                <h2>מ<span class="neon-purple">רעיון</span> למוצר</h2>
+            </div>
+            <div class="timeline-wrapper">
+                <div class="neon-line"></div>
+                <div class="timeline-step left animate-card">
+                    <div class="connector"></div>
+                    <div class="step-card">
+                        <div class="step-num">01</div>
+                        <h3>מחקר ואפיון</h3>
+                        <p>יורדים לפרטים הקטנים ביותר לפני הפיתוח.</p>
+                    </div>
+                </div>
+                <div class="timeline-step right animate-card">
+                    <div class="connector"></div>
+                    <div class="step-card">
+                        <div class="step-num">02</div>
+                        <h3>עיצוב UX/UI</h3>
+                        <p>ממשק משתמש ממכר שנראה מיליון דולר.</p>
+                    </div>
+                </div>
+                <div class="timeline-step left animate-card">
+                    <div class="connector"></div>
+                    <div class="step-card">
+                        <div class="step-num">03</div>
+                        <h3>פיתוח המערכת</h3>
+                        <p>בניית המנוע הטכנולוגי בקוד נקי ומאובטח.</p>
+                    </div>
+                </div>
+                <div class="timeline-step right animate-card">
+                    <div class="connector"></div>
+                    <div class="step-card">
+                        <div class="step-num">04</div>
+                        <h3>עלייה לאוויר</h3>
+                        <p>שיגור לחנויות והתחלת פעילות עסקית.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section 5: Product Arsenal (עם הרקע החדש) -->
+    <section id="arsenal">
+        <div class="container">
+            <div class="section-header">
+                <h2>ארסנל <span class="neon-cyan">המוצרים</span></h2>
+            </div>
+
+            <div class="arsenal-grid">
+                
+                <!-- Product 1: Websites (Cyan) -->
+                <div class="arsenal-item color-cyan">
+                    <div class="hologram-stage">
+                        <div class="holo-ring"></div>
+                        <div class="holo-icon"><i class="fas fa-globe"></i></div>
+                        <div class="holo-shadow"></div>
+                    </div>
+                    <h3>אתרי תדמית ומסחר</h3>
+                    <p>WEB PRESENCE</p>
+                </div>
+
+                <!-- Product 2: Apps (Pink) -->
+                <div class="arsenal-item color-pink">
+                    <div class="hologram-stage">
+                        <div class="holo-ring"></div>
+                        <div class="holo-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <div class="holo-shadow"></div>
+                    </div>
+                    <h3>אפליקציות</h3>
+                    <p>MOBILE APPS</p>
+                </div>
+
+                <!-- Product 3: CRM (Orange) -->
+                <div class="arsenal-item color-orange">
+                    <div class="hologram-stage">
+                        <div class="holo-ring"></div>
+                        <div class="holo-icon"><i class="fas fa-chart-pie"></i></div>
+                        <div class="holo-shadow"></div>
+                    </div>
+                    <h3>מערכות CRM</h3>
+                    <p>DATA SYSTEMS</p>
+                </div>
+
+                <!-- Product 4: Bots (Green) -->
+                <div class="arsenal-item color-green">
+                    <div class="hologram-stage">
+                        <div class="holo-ring"></div>
+                        <div class="holo-icon"><i class="fab fa-whatsapp"></i></div>
+                        <div class="holo-shadow"></div>
+                    </div>
+                    <h3>בוטים ואוטומציה</h3>
+                    <p>AI AGENTS</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: About + Stats -->
+    <section id="about">
+        <div class="about-glitch-bg"></div>
+        <div class="container">
+            <div class="about-layout">
+                <div class="about-text-col animate-card">
+                    <div class="title-with-orb">
+                        <div class="shard-orb"></div>
+                        <h2 class="about-title">בית תוכנה ש<span class="neon-gold">משנה</span><br>את הכללים</h2>
+                    </div>
+                    <p class="about-description">
+                        לא עוד הצעות מחיר מנופחות, לוחות זמנים שמתמשכים לנצח וקוד שנשאר בידיים של מישהו אחר. אנחנו בונים מוצרים דיגיטליים שמייצרים תוצאות אמיתיות — עם מודל ייחודי שמקצר את הדרך לשוק פי 3, מוריד עלויות משמעותית ומשאיר אתכם הבעלים המוחלטים של כל שורת קוד.
+                    </p>
+                </div>
+                <div class="stats-col">
+                    <div class="stat-card animate-card">
+                        <div class="stat-number-wrapper">
+                            <span class="stat-number" data-target="80">0</span><span class="stat-suffix">%</span>
+                        </div>
+                        <div class="stat-label">הפחתה בזמן פיתוח</div>
+                        <div class="stat-bar"><div class="stat-fill" style="--fill: 80%"></div></div>
+                    </div>
+                    <div class="stat-card purple-accent-stat animate-card">
+                        <div class="stat-number-wrapper">
+                            <span class="stat-number" data-target="400">0</span><span class="stat-suffix">%</span>
+                        </div>
+                        <div class="stat-label">צמיחה ARR שנתית</div>
+                        <div class="stat-bar"><div class="stat-fill" style="--fill: 100%"></div></div>
+                    </div>
+                    <div class="stat-card animate-card">
+                        <div class="stat-number-wrapper">
+                            <span class="stat-number" data-target="50">0</span><span class="stat-suffix">+</span>
+                        </div>
+                        <div class="stat-label">פרויקטים שהושלמו</div>
+                        <div class="stat-bar"><div class="stat-fill" style="--fill: 85%"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Clients -->
+    <section id="clients">
+        <div class="container">
+            <div class="section-header">
+                <h2>הלקוחות <span class="neon-cyan">שלנו</span></h2>
+                <p class="clients-subtitle">ארגונים מובילים שבחרו לבנות את העתיד הדיגיטלי שלהם איתנו</p>
+            </div>
+        </div>
+        <!-- Track of geometric cubes -->
+        <div class="logos-marquee-outer">
+
+            <!-- Row 1 — scrolls forward -->
+            <div class="logos-row row-forward">
+                <div class="logos-track">
+                    <!-- SET 1 -->
+                    <div class="cube-geo cube-lg c-glow"></div>
+                    <div class="logo-slide cube-bright" style="--sc:#00f0ff"><img src="images/logo-seeachsod.png" alt="שיח סוד"></div>
+                    <div class="cube-geo cube-sm c-dot"></div>
+                    <div class="logo-slide" style="--sc:#4466ff"><img src="images/logo-ydidim.png" alt="ידידי מפעל השליחות"></div>
+                    <div class="cube-geo cube-sm"></div>
+                    <div class="logo-slide cube-bright" style="--sc:#00ccff"><img src="images/logo-helpme.png" alt="Help Me"></div>
+                    <div class="cube-geo cube-lg"></div>
+                    <div class="logo-slide" style="--sc:#00ff88"><img src="images/logo-green.png" alt="Green"></div>
+                    <div class="cube-geo cube-sm c-dot"></div>
+                    <div class="logo-slide cube-bright" style="--sc:#3366ee"><img src="images/logo-misrad-chinuch.png" alt="משרד החינוך"></div>
+                    <!-- SET 2 (duplicate) -->
+                    <div class="cube-geo cube-lg c-glow"></div>
+                    <div class="logo-slide cube-bright" style="--sc:#00f0ff"><img src="images/logo-seeachsod.png" alt="שיח סוד"></div>
+                    <div class="cube-geo cube-sm c-dot"></div>
+                    <div class="logo-slide" style="--sc:#4466ff"><img src="images/logo-ydidim.png" alt="ידידי מפעל השליחות"></div>
+                    <div class="cube-geo cube-sm"></div>
+                    <div class="logo-slide cube-bright" style="--sc:#00ccff"><img src="images/logo-helpme.png" alt="Help Me"></div>
+                    <div class="cube-geo cube-lg"></div>
+                    <div class="logo-slide" style="--sc:#00ff88"><img src="images/logo-green.png" alt="Green"></div>
+                    <div class="cube-geo cube-sm c-dot"></div>
+                    <div class="logo-slide cube-bright" style="--sc:#3366ee"><img src="images/logo-misrad-chinuch.png" alt="משרד החינוך"></div>
+                    <!-- SET 3 (duplicate) -->
+                    <div class="cube-geo cube-lg c-glow"></div>
+                    <div class="logo-slide cube-bright" style="--sc:#00f0ff"><img src="images/logo-seeachsod.png" alt="שיח סוד"></div>
+                    <div class="cube-geo cube-sm c-dot"></div>
+                    <div class="logo-slide" style="--sc:#4466ff"><img src="images/logo-ydidim.png" alt="ידידי מפעל השליחות"></div>
+                    <div class="cube-geo cube-sm"></div>
+                    <div class="logo-slide cube-bright" style="--sc:#00ccff"><img src="images/logo-helpme.png" alt="Help Me"></div>
+                    <div class="cube-geo cube-lg"></div>
+                    <div class="logo-slide" style="--sc:#00ff88"><img src="images/logo-green.png" alt="Green"></div>
+                    <div class="cube-geo cube-sm c-dot"></div>
+                    <div class="logo-slide cube-bright" style="--sc:#3366ee"><img src="images/logo-misrad-chinuch.png" alt="משרד החינוך"></div>
+                </div>
+            </div>
+
+            <!-- Row 2 — scrolls reverse -->
+            <div class="logos-row row-reverse">
+                <div class="logos-track">
+                    <!-- SET 1 -->
+                    <div class="cube-geo cube-sm"></div>
+                    <div class="logo-slide cube-bright" style="--sc:#ff7700"><img src="images/logo-ohalir.png" alt="אוהליר"></div>
+                    <div class="cube-geo cube-lg c-glow"></div>
+                    <div class="logo-slide" style="--sc:#ff3388"><img src="images/logo-meitarim.png" alt="מיתרים ירושלים"></div>
+                    <div class="cube-geo cube-sm c-dot"></div>
+                    <div class="logo-slide cube-bright" style="--sc:#00ddcc"><img src="images/logo-saada-dagim.png" alt="סעדה דגים"></div>
+                    <div class="cube-geo cube-sm"></div>
+                    <div class="logo-slide" style="--sc:#aaaaaa"><img src="images/logo-umbrella.png" alt="um brella"></div>
+                    <div class="cube-geo cube-lg c-dot"></div>
+                    <!-- SET 2 (duplicate) -->
+                    <div class="cube-geo cube-sm"></div>
+                    <div class="logo-slide cube-bright" style="--sc:#ff7700"><img src="images/logo-ohalir.png" alt="אוהליר"></div>
+                    <div class="cube-geo cube-lg c-glow"></div>
+                    <div class="logo-slide" style="--sc:#ff3388"><img src="images/logo-meitarim.png" alt="מיתרים ירושלים"></div>
+                    <div class="cube-geo cube-sm c-dot"></div>
+                    <div class="logo-slide cube-bright" style="--sc:#00ddcc"><img src="images/logo-saada-dagim.png" alt="סעדה דגים"></div>
+                    <div class="cube-geo cube-sm"></div>
+                    <div class="logo-slide" style="--sc:#aaaaaa"><img src="images/logo-umbrella.png" alt="um brella"></div>
+                    <div class="cube-geo cube-lg c-dot"></div>
+                    <!-- SET 3 (duplicate) -->
+                    <div class="cube-geo cube-sm"></div>
+                    <div class="logo-slide cube-bright" style="--sc:#ff7700"><img src="images/logo-ohalir.png" alt="אוהליר"></div>
+                    <div class="cube-geo cube-lg c-glow"></div>
+                    <div class="logo-slide" style="--sc:#ff3388"><img src="images/logo-meitarim.png" alt="מיתרים ירושלים"></div>
+                    <div class="cube-geo cube-sm c-dot"></div>
+                    <div class="logo-slide cube-bright" style="--sc:#00ddcc"><img src="images/logo-saada-dagim.png" alt="סעדה דגים"></div>
+                    <div class="cube-geo cube-sm"></div>
+                    <div class="logo-slide" style="--sc:#aaaaaa"><img src="images/logo-umbrella.png" alt="um brella"></div>
+                    <div class="cube-geo cube-lg c-dot"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section: Founder -->
+    <section id="founder">
+        <div class="founder-glow"></div>
+        <div class="container">
+            <div class="founder-layout">
+                <!-- Photo Column -->
+                <div class="founder-photo-col animate-card">
+                    <div class="founder-frame">
+                        <div class="frame-corner corner-tl"></div>
+                        <div class="frame-corner corner-tr"></div>
+                        <div class="frame-corner corner-bl"></div>
+                        <div class="frame-corner corner-br"></div>
+                        <div class="founder-scan"></div>
+                        <img src="images/founder.jpg" alt="שמוליק בוקסבוים" class="founder-img">
+                    </div>
+                    <div class="founder-id-card">
+                        <div class="id-mono">// FOUNDER_ID</div>
+                        <div class="id-name">שמוליק בוקסבוים</div>
+                        <div class="id-title">בעלים של בית תוכנה וסטארטאפ</div>
+                    </div>
+                </div>
+                <!-- Quote Column -->
+                <div class="founder-quote-col animate-card">
+                    <div class="quote-deco quote-deco-top">״</div>
+                    <blockquote class="founder-quote">
+                        <p>אני מאמין שפתרונות טכנולוגיים מנצחים לא נולדים במשרד, אלא בשטח. השילוב בין הניסיון שלי כבעלים של סטארטאפ לבין היכולת הביצועית של בית התוכנה שלי, מאפשר לי לזהות את הכשלים בענף התיכנות ולתרגם אותם לכלים שעובדים בשביל העסק, ולא להפך.</p>
+                        <p class="quote-p2">המימוש הזה הוא לא רק ראיון — הוא הארכיטקטורה שלמה שבנתה כדי להביא סדר, אוטומציה, ורווחיות לשוק שצמא לחדשנות.</p>
+                    </blockquote>
+                    <div class="quote-deco quote-deco-bottom">״</div>
+                    <div class="founder-badges">
+                        <span class="badge"><span class="neon-purple">AI-First</span> גישה</span>
+                        <span class="badge-sep">·</span>
+                        <span class="badge"><span class="neon-cyan">Hybrid-SaaS</span> מודל</span>
+                        <span class="badge-sep">·</span>
+                        <span class="badge">ניסיון <span class="neon-purple">מהשטח</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: FAQ (הוחזר למקומו) -->
+    <section id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>שאלות <span class="neon-cyan">נפוצות</span></h2>
+            </div>
+            
+            <div class="faq-grid">
+                <!-- Q1 -->
+                <div class="faq-box">
+                    <div class="faq-question">
+                        <span>למה אני צריך אפליקציה ולא סתם אתר?</span>
+                        <div class="faq-symbol">?</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>הלקוחות שלכם חיים בנייד. אפליקציה נותנת נדל״ן יוקרתי, פושים, וחוויה חלקה שאתר לא יכול לספק.</p>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="faq-box">
+                    <div class="faq-question">
+                        <span>איך בוחרים בית תוכנה?</span>
+                        <div class="faq-symbol">?</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>לא מסתכלים רק על המחיר. בודקים קוד, עיצוב וכימיה. אנחנו מאמינים בפרטנרשיפ, לא ביחסי ספק-לקוח.</p>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="faq-box">
+                    <div class="faq-question">
+                        <span>מה לגבי הבעלות על הקוד?</span>
+                        <div class="faq-symbol">?</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>הקוד 100% שלכם מרגע סיום התשלום. בלי אותיות קטנות ובלי הפתעות.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section 6: Contact -->
+    <section id="contact">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+
+        <div class="container">
+            <div class="section-header">
+                <h2>מוכנים <span class="neon-purple">להמריא?</span></h2>
+                <p>השאירו פרטים והצוות הטכנולוגי שלנו יחזור אליכם עם תוכנית פעולה.</p>
+            </div>
+
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div>
+                            <h4>דברו איתנו</h4>
+                            <p>050-1234567</p>
+                        </div>
+                    </div>
+                    <!-- אלמנט המייל המועתק -->
+                    <div class="info-item email-copy-wrapper">
+                        <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>מייל</h4>
+                            <div class="email-container">
+                                <p id="email-text">hello@technova.co.il</p>
+                                <i class="far fa-copy copy-icon"></i>
+                                
+                                <!-- הנה הבועה - בפנים! -->
+                                <span id="copy-tooltip" class="copy-tooltip">הועתק!</span>
+                            </div>                    
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4>מיקום</h4>
+                            <p>מגדלי ההייטק, תל אביב</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="tech-form" name="contact" method="POST" data-netlify="true">
+                    <input type="hidden" name="form-name" value="contact" />
+                    
+                    <div class="form-group">
+                        <input type="text" name="name" id="name" required>
+                        <label for="name">שם מלא</label>
+                        <div class="input-line"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" name="email" id="email" required>
+                        <label for="email">אימייל</label>
+                        <div class="input-line"></div>
+                    </div>
+<!-- 
+                    <div class="form-group">
+                        <input type="tel" name="phone" id="phone" required>
+                        <label for="phone">טלפון</label>
+                        <div class="input-line"></div>
+                    </div> -->
+                    <button type="submit" class="btn-stadium primary submit-btn">
+                        שגר פרטים <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+
+                <!-- הודעת הצלחה מוסתרת -->
+                <div class="success-message" style="display: none;">
+                    <h3><i class="fas fa-satellite-dish"></i> השידור נקלט במערכת</h3>
+                    <p>העתיד מתחיל עכשיו!</p>
+                </div>
+
+            </div>
+        </div>
+        
+        <footer class="cyber-footer">
+            <p>.Surrealism © 2026. All Systems Operational</p>
+        </footer>
+    </section>
+
+    <!-- טעינת הספרייה -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
